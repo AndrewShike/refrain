@@ -99,7 +99,12 @@ var init = function() {
 	controls.oct1 = new Value(5, [[1,2,3,4,5,6,7,8,9,10], 3], [[0,0,0,0,0,LO,0,0,0,0], HI], function() { return page == 0 && kpage == 1; });
 	controls.oct2 = new Value(5, [[1,2,3,4,5,6,7,8,9,10], 3], [[0,0,0,0,0,LO,0,0,0,0], HI], function() { return page == 0 && kpage == 2; });
 	controls.oct3 = new Value(5, [[1,2,3,4,5,6,7,8,9,10], 3], [[0,0,0,0,0,LO,0,0,0,0], HI], function() { return page == 0 && kpage == 3; });
-			
+	
+	controls.row0 = new Momentaries([], [[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14], 4], [[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], HI], function() { return 1; });
+	controls.row1 = new Momentaries([], [[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14], 5], [[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], HI], function() { return 1; });
+	controls.row2 = new Momentaries([], [[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14], 6], [[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], HI], function() { return 1; });
+	controls.row3 = new Momentaries([], [[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14], 7], [[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], HI], function() { return 1; });
+	
 	controls.scale.event = function() {
 		controls.marks.p[0] = [];
 		

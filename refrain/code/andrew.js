@@ -125,7 +125,6 @@ Toggles.prototype.draw = function(g) {
 			}
 		} 
 		else {
-			
 			for(var i = 0; i < this.p[1].length; i++) {
 				g.led(this.p[0], this.p[1][i], bb[i]);
 			}
@@ -148,6 +147,55 @@ Toggles.prototype.look = function(x, y, z) {
 						}
 						else {
 							this.v.splice(thing, 1);
+						}
+						
+						this.event(this.v, last);
+					}
+				}
+			}
+		}
+		else {
+			if(x == this.p[0]) {
+				for(var i = 0; i < this.p[1].length; i++) {
+					if(this.p[1][i] == y && z == 1) {
+						var last = this.v.slice();
+						
+						var thing = this.v.indexOf(i);
+						
+						if(thing == -1) {
+							this.v.push(i);
+						}
+						else {
+							this.v.splice(thing, 1);
+						}
+						
+						this.event(this.v, last);
+					}
+				}
+			}
+		}
+	}
+}
+
+var Momentaries = function(v, p, b, pg) {
+	Toggles.call(this, v, p, b, pg);
+}
+
+Momentaries.prototype = Object.create(Toggles.prototype);
+
+Momentaries.prototype.look = function(x, y, z) {
+	if(this.pg()) {
+		if(this.p[0].length) {
+			if(y == this.p[1]) {
+				for(var i = 0; i < this.p[0].length; i++) {
+					if(this.p[0][i] == x) {
+						var last = this.v.slice();
+						
+						if(z == 1) {
+							this.v.push(i);
+						}
+						else {
+							this.v.splice(this.v.indexOf(i), 1);
 						}
 						
 						this.event(this.v, last);
