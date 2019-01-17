@@ -84,7 +84,7 @@ Value.prototype.look = function(x, y, z) {
 			if(y == this.p[1]) {
 				for(var i = 0; i < this.p[0].length; i++) {
 					if(this.p[0][i] == x && z == 1) {
-						var v = x - this.p[0][0]
+						var v = i;
 						this.event(v);
 						this.v = v;
 					}
@@ -95,7 +95,7 @@ Value.prototype.look = function(x, y, z) {
 			if(x == this.p[0]) {
 				for(var i = 0; i < this.p[1].length; i++) {
 					if(this.p[1][i] == y && z == 1) {
-						var v = y - this.p[1][0]
+						var v = i;
 						this.event(v);
 						this.v = v;
 					}
@@ -146,6 +146,7 @@ Toggles.prototype.look = function(x, y, z) {
 						
 						if(thing == -1) {
 							this.v.push(i);
+							this.v.sort(function(a, b) { return a - b; });
 							
 							var added = i;
 						}
@@ -172,6 +173,7 @@ Toggles.prototype.look = function(x, y, z) {
 						
 						if(thing == -1) {
 							this.v.push(i);
+							this.v.sort(function(a, b) { return a - b; });
 							
 							added = i;
 						}
@@ -207,6 +209,7 @@ Momentaries.prototype.look = function(x, y, z) {
 						
 						if(z == 1) {
 							this.v.push(i);
+							this.v.sort(function(a, b) { return a - b; });
 							
 							added = i;
 						}
@@ -231,6 +234,7 @@ Momentaries.prototype.look = function(x, y, z) {
 						
 						if(z == 1) {
 							this.v.push(i);
+							this.v.sort(function(a, b) { return a - b; });
 							
 							added = i;
 						}
