@@ -139,17 +139,23 @@ Toggles.prototype.look = function(x, y, z) {
 				for(var i = 0; i < this.p[0].length; i++) {
 					if(this.p[0][i] == x && z == 1) {
 						var last = this.v.slice();
+						var added = -1;
+						var removed = -1;
 						
 						var thing = this.v.indexOf(i);
 						
 						if(thing == -1) {
 							this.v.push(i);
+							
+							var added = i;
 						}
 						else {
 							this.v.splice(thing, 1);
+							
+							var removed = i;
 						}
 						
-						this.event(this.v, last);
+						this.event(this.v, last, added, removed);
 					}
 				}
 			}
@@ -159,17 +165,23 @@ Toggles.prototype.look = function(x, y, z) {
 				for(var i = 0; i < this.p[1].length; i++) {
 					if(this.p[1][i] == y && z == 1) {
 						var last = this.v.slice();
+						var added = -1;
+						var removed = -1;
 						
 						var thing = this.v.indexOf(i);
 						
 						if(thing == -1) {
 							this.v.push(i);
+							
+							added = i;
 						}
 						else {
 							this.v.splice(thing, 1);
+							
+							removed = i;
 						}
 						
-						this.event(this.v, last);
+						this.event(this.v, last, added, removed);
 					}
 				}
 			}
@@ -190,15 +202,21 @@ Momentaries.prototype.look = function(x, y, z) {
 				for(var i = 0; i < this.p[0].length; i++) {
 					if(this.p[0][i] == x) {
 						var last = this.v.slice();
+						var added = -1;
+						var removed = -1;
 						
 						if(z == 1) {
 							this.v.push(i);
+							
+							added = i;
 						}
 						else {
 							this.v.splice(this.v.indexOf(i), 1);
+							
+							removed = i;
 						}
 						
-						this.event(this.v, last);
+						this.event(this.v, last, added, removed);
 					}
 				}
 			}
@@ -208,17 +226,21 @@ Momentaries.prototype.look = function(x, y, z) {
 				for(var i = 0; i < this.p[1].length; i++) {
 					if(this.p[1][i] == y && z == 1) {
 						var last = this.v.slice();
+						var added = -1;
+						var removed = -1;
 						
-						var thing = this.v.indexOf(i);
-						
-						if(thing == -1) {
+						if(z == 1) {
 							this.v.push(i);
+							
+							added = i;
 						}
 						else {
-							this.v.splice(thing, 1);
+							this.v.splice(this.v.indexOf(i), 1);
+							
+							removed = i;
 						}
 						
-						this.event(this.v, last);
+						this.event(this.v, last, added, removed);
 					}
 				}
 			}

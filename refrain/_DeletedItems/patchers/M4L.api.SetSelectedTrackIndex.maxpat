@@ -1,651 +1,635 @@
 {
 	"patcher" : 	{
 		"fileversion" : 1,
+		"appversion" : 		{
+			"major" : 8,
+			"minor" : 0,
+			"revision" : 1,
+			"architecture" : "x64",
+			"modernui" : 1
+		}
+,
+		"classnamespace" : "box",
 		"rect" : [ 86.0, 44.0, 550.0, 588.0 ],
 		"bglocked" : 0,
-		"defrect" : [ 86.0, 44.0, 550.0, 588.0 ],
-		"openrect" : [ 0.0, 0.0, 0.0, 0.0 ],
 		"openinpresentation" : 0,
 		"default_fontsize" : 10.0,
 		"default_fontface" : 0,
 		"default_fontname" : "Arial Bold",
-		"gridonopen" : 0,
+		"gridonopen" : 1,
 		"gridsize" : [ 8.0, 8.0 ],
-		"gridsnaponopen" : 0,
+		"gridsnaponopen" : 1,
+		"objectsnaponopen" : 1,
+		"statusbarvisible" : 2,
 		"toolbarvisible" : 1,
+		"lefttoolbarpinned" : 0,
+		"toptoolbarpinned" : 0,
+		"righttoolbarpinned" : 0,
+		"bottomtoolbarpinned" : 0,
+		"toolbars_unpinned_last_save" : 0,
+		"tallnewobj" : 0,
 		"boxanimatetime" : 200,
-		"imprint" : 0,
 		"enablehscroll" : 1,
 		"enablevscroll" : 1,
 		"devicewidth" : 0.0,
+		"description" : "",
+		"digest" : "",
+		"tags" : "",
+		"style" : "",
+		"subpatcher_template" : "",
 		"boxes" : [ 			{
 				"box" : 				{
+					"fontname" : "Arial Bold",
+					"fontsize" : 10.0,
+					"id" : "obj-19",
 					"maxclass" : "newobj",
-					"text" : "route bang <empty>",
+					"numinlets" : 3,
+					"numoutlets" : 3,
 					"outlettype" : [ "", "", "" ],
 					"patching_rect" : [ 192.0, 392.0, 106.0, 18.0 ],
-					"id" : "obj-19",
-					"fontname" : "Arial Bold",
-					"numinlets" : 1,
-					"numoutlets" : 3,
-					"fontsize" : 10.0
+					"text" : "route bang <empty>"
 				}
 
 			}
 , 			{
 				"box" : 				{
-					"maxclass" : "comment",
-					"text" : "< this live.object points to the current Live Set's main view - now we set the property \"selected_track\" to the given id",
-					"linecount" : 3,
-					"patching_rect" : [ 328.0, 480.0, 187.0, 41.0 ],
-					"id" : "obj-17",
-					"frgb" : [ 0.101961, 0.121569, 0.172549, 1.0 ],
 					"fontname" : "Arial",
+					"fontsize" : 10.0,
+					"id" : "obj-17",
+					"linecount" : 3,
+					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"fontsize" : 10.0
+					"patching_rect" : [ 328.0, 480.0, 187.0, 41.0 ],
+					"text" : "< this live.object points to the current Live Set's main view - now we set the property \"selected_track\" to the given id"
 				}
 
 			}
 , 			{
 				"box" : 				{
+					"bgcolor" : [ 0.984314, 0.819608, 0.05098, 1.0 ],
+					"bgfillcolor_autogradient" : 0.79,
+					"bgfillcolor_color" : [ 0.8, 0.8, 0.8, 1 ],
+					"bgfillcolor_color1" : [ 0.984314, 0.819608, 0.05098, 1.0 ],
+					"bgfillcolor_color2" : [ 0.685, 0.685, 0.685, 1.0 ],
+					"bgfillcolor_type" : "gradient",
+					"fontname" : "Arial Bold",
+					"fontsize" : 10.0,
+					"gradient" : 0,
+					"id" : "obj-18",
 					"maxclass" : "message",
-					"text" : "help live.object",
+					"numinlets" : 2,
+					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 328.0, 520.0, 83.0, 16.0 ],
-					"id" : "obj-18",
-					"fontname" : "Arial Bold",
-					"numinlets" : 2,
-					"numoutlets" : 1,
-					"fontsize" : 10.0,
-					"bgcolor" : [ 0.984314, 0.819608, 0.05098, 1.0 ]
+					"text" : "help live.object"
 				}
 
 			}
 , 			{
 				"box" : 				{
-					"maxclass" : "newobj",
-					"text" : "pcontrol",
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 328.0, 544.0, 50.0, 18.0 ],
+					"fontname" : "Arial Bold",
+					"fontsize" : 10.0,
 					"hidden" : 1,
 					"id" : "obj-20",
-					"fontname" : "Arial Bold",
+					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 1,
-					"fontsize" : 10.0
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 328.0, 544.0, 50.0, 18.0 ],
+					"text" : "pcontrol"
 				}
 
 			}
 , 			{
 				"box" : 				{
-					"maxclass" : "comment",
-					"text" : "--->",
-					"patching_rect" : [ 112.0, 320.0, 27.0, 18.0 ],
+					"fontname" : "Arial",
+					"fontsize" : 10.0,
 					"id" : "obj-25",
-					"frgb" : [ 0.101961, 0.121569, 0.172549, 1.0 ],
-					"fontname" : "Arial",
+					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"fontsize" : 10.0
+					"patching_rect" : [ 112.0, 320.0, 27.0, 18.0 ],
+					"text" : "--->"
 				}
 
 			}
 , 			{
 				"box" : 				{
-					"maxclass" : "comment",
-					"text" : "after the live.object points to the current Live Set we ask it for a list of currently visible tracks (NOT including return tracks)",
-					"linecount" : 7,
-					"patching_rect" : [ 16.0, 320.0, 108.0, 87.0 ],
+					"fontname" : "Arial",
+					"fontsize" : 10.0,
 					"id" : "obj-24",
-					"frgb" : [ 0.101961, 0.121569, 0.172549, 1.0 ],
-					"fontname" : "Arial",
+					"linecount" : 7,
+					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"fontsize" : 10.0
+					"patching_rect" : [ 16.0, 320.0, 108.0, 87.0 ],
+					"text" : "after the live.object points to the current Live Set we ask it for a list of currently visible tracks (NOT including return tracks)"
 				}
 
 			}
 , 			{
 				"box" : 				{
-					"maxclass" : "comment",
-					"text" : "--->",
-					"patching_rect" : [ 144.0, 240.0, 27.0, 18.0 ],
+					"fontname" : "Arial",
+					"fontsize" : 10.0,
 					"id" : "obj-23",
-					"frgb" : [ 0.101961, 0.121569, 0.172549, 1.0 ],
-					"fontname" : "Arial",
+					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"fontsize" : 10.0
+					"patching_rect" : [ 144.0, 240.0, 27.0, 18.0 ],
+					"text" : "--->"
 				}
 
 			}
 , 			{
 				"box" : 				{
-					"maxclass" : "comment",
-					"text" : "we need a list of visible tracks so we let the live.path point to the current Live Set and feed the live.object below with its ID",
-					"linecount" : 5,
-					"patching_rect" : [ 16.0, 240.0, 138.0, 64.0 ],
+					"fontname" : "Arial",
+					"fontsize" : 10.0,
 					"id" : "obj-53",
-					"frgb" : [ 0.101961, 0.121569, 0.172549, 1.0 ],
-					"fontname" : "Arial",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"fontsize" : 10.0
-				}
-
-			}
-, 			{
-				"box" : 				{
+					"linecount" : 5,
 					"maxclass" : "comment",
-					"text" : "< first we set the live.path to the main view of the current Live Set and feed the live.object below with its ID",
-					"linecount" : 4,
-					"patching_rect" : [ 352.0, 160.0, 169.0, 52.0 ],
-					"id" : "obj-26",
-					"frgb" : [ 0.101961, 0.121569, 0.172549, 1.0 ],
-					"fontname" : "Arial",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"fontsize" : 10.0
+					"patching_rect" : [ 16.0, 240.0, 138.0, 64.0 ],
+					"text" : "we need a list of visible tracks so we let the live.path point to the current Live Set and feed the live.object below with its ID"
 				}
 
 			}
 , 			{
 				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 10.0,
+					"id" : "obj-26",
+					"linecount" : 4,
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 352.0, 160.0, 169.0, 52.0 ],
+					"text" : "< first we set the live.path to the main view of the current Live Set and feed the live.object below with its ID"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"bgcolor" : [ 0.984314, 0.819608, 0.05098, 1.0 ],
+					"bgfillcolor_autogradient" : 0.79,
+					"bgfillcolor_color" : [ 0.8, 0.8, 0.8, 1 ],
+					"bgfillcolor_color1" : [ 0.984314, 0.819608, 0.05098, 1.0 ],
+					"bgfillcolor_color2" : [ 0.685, 0.685, 0.685, 1.0 ],
+					"bgfillcolor_type" : "gradient",
+					"fontname" : "Arial Bold",
+					"fontsize" : 10.0,
+					"gradient" : 0,
+					"id" : "obj-52",
 					"maxclass" : "message",
-					"text" : "help live.path",
+					"numinlets" : 2,
+					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 352.0, 208.0, 74.0, 16.0 ],
-					"id" : "obj-52",
-					"fontname" : "Arial Bold",
-					"numinlets" : 2,
-					"numoutlets" : 1,
-					"fontsize" : 10.0,
-					"bgcolor" : [ 0.984314, 0.819608, 0.05098, 1.0 ]
+					"text" : "help live.path"
 				}
 
 			}
 , 			{
 				"box" : 				{
-					"maxclass" : "newobj",
-					"text" : "pcontrol",
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 352.0, 232.0, 50.0, 18.0 ],
+					"fontname" : "Arial Bold",
+					"fontsize" : 10.0,
 					"hidden" : 1,
 					"id" : "obj-51",
-					"fontname" : "Arial Bold",
+					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 1,
-					"fontsize" : 10.0
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 352.0, 232.0, 50.0, 18.0 ],
+					"text" : "pcontrol"
 				}
 
 			}
 , 			{
 				"box" : 				{
+					"fontname" : "Arial Bold Italic",
+					"fontsize" : 24.0,
+					"id" : "obj-48",
 					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 16.0, 16.0, 295.0, 34.0 ],
 					"prototypename" : "ML.subpatcher-title",
 					"text" : "Set Selected Track Index",
-					"patching_rect" : [ 16.0, 16.0, 295.0, 34.0 ],
-					"id" : "obj-48",
-					"frgb" : [ 0.3, 0.34, 0.4, 1.0 ],
-					"fontname" : "Arial Bold Italic",
-					"numinlets" : 1,
-					"textcolor" : [ 0.3, 0.34, 0.4, 1.0 ],
-					"numoutlets" : 0,
-					"fontsize" : 24.0
+					"textcolor" : [ 0.300000011920929, 0.340000003576279, 0.400000005960464, 1.0 ]
 				}
 
 			}
 , 			{
 				"box" : 				{
-					"maxclass" : "comment",
-					"prototypename" : "ML.patcher-story",
-					"text" : "Set the selected track to a given index. The index will be mapped against the list of visible tracks.",
-					"linecount" : 2,
-					"patching_rect" : [ 16.0, 48.0, 320.0, 32.0 ],
-					"id" : "obj-50",
-					"frgb" : [ 0.101961, 0.121569, 0.172549, 1.0 ],
 					"fontname" : "Arial Italic",
+					"fontsize" : 11.0,
+					"id" : "obj-50",
+					"linecount" : 2,
+					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"fontsize" : 11.0
+					"patching_rect" : [ 16.0, 48.0, 320.0, 32.0 ],
+					"prototypename" : "ML.patcher-story",
+					"text" : "Set the selected track to a given index. The index will be mapped against the list of visible tracks."
 				}
 
 			}
 , 			{
 				"box" : 				{
+					"fontname" : "Arial Bold",
+					"fontsize" : 10.0,
+					"id" : "obj-16",
 					"maxclass" : "newobj",
-					"text" : "int",
+					"numinlets" : 2,
+					"numoutlets" : 1,
 					"outlettype" : [ "int" ],
 					"patching_rect" : [ 320.0, 368.0, 35.0, 18.0 ],
-					"id" : "obj-16",
-					"fontname" : "Arial Bold",
-					"numinlets" : 2,
-					"numoutlets" : 1,
-					"fontsize" : 10.0
+					"text" : "int"
 				}
 
 			}
 , 			{
 				"box" : 				{
+					"fontname" : "Arial Bold",
+					"fontsize" : 10.0,
+					"id" : "obj-15",
 					"maxclass" : "newobj",
-					"text" : "t b b l",
+					"numinlets" : 1,
+					"numoutlets" : 3,
 					"outlettype" : [ "bang", "bang", "" ],
 					"patching_rect" : [ 272.0, 208.0, 46.0, 18.0 ],
-					"id" : "obj-15",
-					"fontname" : "Arial Bold",
-					"numinlets" : 1,
-					"numoutlets" : 3,
-					"fontsize" : 10.0
+					"text" : "t b b l"
 				}
 
 			}
 , 			{
 				"box" : 				{
+					"fontname" : "Arial Bold",
+					"fontsize" : 10.0,
+					"id" : "obj-14",
 					"maxclass" : "newobj",
-					"text" : "t b l",
+					"numinlets" : 1,
+					"numoutlets" : 2,
 					"outlettype" : [ "bang", "" ],
 					"patching_rect" : [ 216.0, 288.0, 37.0, 18.0 ],
-					"id" : "obj-14",
-					"fontname" : "Arial Bold",
-					"numinlets" : 1,
-					"numoutlets" : 2,
-					"fontsize" : 10.0
+					"text" : "t b l"
 				}
 
 			}
 , 			{
 				"box" : 				{
+					"fontname" : "Arial Bold",
+					"fontsize" : 10.0,
+					"id" : "obj-10",
 					"maxclass" : "newobj",
-					"text" : "t b i",
+					"numinlets" : 1,
+					"numoutlets" : 2,
 					"outlettype" : [ "bang", "int" ],
 					"patching_rect" : [ 320.0, 128.0, 35.0, 18.0 ],
-					"id" : "obj-10",
-					"fontname" : "Arial Bold",
-					"numinlets" : 1,
-					"numoutlets" : 2,
-					"fontsize" : 10.0
+					"text" : "t b i"
 				}
 
 			}
 , 			{
 				"box" : 				{
+					"fontname" : "Arial Bold",
+					"fontsize" : 10.0,
+					"id" : "obj-11",
 					"maxclass" : "message",
-					"text" : "path live_set view",
+					"numinlets" : 2,
+					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 248.0, 160.0, 96.0, 16.0 ],
-					"id" : "obj-11",
-					"fontname" : "Arial Bold",
-					"numinlets" : 2,
-					"numoutlets" : 1,
-					"fontsize" : 10.0
+					"text" : "path live_set view"
 				}
 
 			}
 , 			{
 				"box" : 				{
-					"maxclass" : "newobj",
-					"text" : "live.object",
-					"outlettype" : [ "" ],
 					"color" : [ 0.984314, 0.819608, 0.05098, 1.0 ],
-					"patching_rect" : [ 256.0, 504.0, 61.0, 18.0 ],
-					"id" : "obj-12",
 					"fontname" : "Arial Bold",
+					"fontsize" : 10.0,
+					"id" : "obj-12",
+					"maxclass" : "newobj",
 					"numinlets" : 2,
 					"numoutlets" : 1,
-					"fontsize" : 10.0,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 256.0, 504.0, 61.0, 18.0 ],
 					"saved_object_attributes" : 					{
 						"_persistence" : 0
 					}
-
+,
+					"text" : "live.object"
 				}
 
 			}
 , 			{
 				"box" : 				{
-					"maxclass" : "newobj",
-					"text" : "live.path",
-					"outlettype" : [ "", "", "" ],
 					"color" : [ 0.984314, 0.819608, 0.05098, 1.0 ],
-					"patching_rect" : [ 248.0, 184.0, 66.0, 18.0 ],
-					"id" : "obj-13",
 					"fontname" : "Arial Bold",
+					"fontsize" : 10.0,
+					"id" : "obj-13",
+					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 3,
-					"fontsize" : 10.0
+					"outlettype" : [ "", "", "" ],
+					"patching_rect" : [ 248.0, 184.0, 66.0, 18.0 ],
+					"text" : "live.path"
 				}
 
 			}
 , 			{
 				"box" : 				{
+					"fontname" : "Arial Bold",
+					"fontsize" : 10.0,
+					"id" : "obj-9",
 					"maxclass" : "newobj",
-					"text" : "prepend set selected_track id",
+					"numinlets" : 1,
+					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 144.0, 472.0, 152.0, 18.0 ],
-					"id" : "obj-9",
-					"fontname" : "Arial Bold",
-					"numinlets" : 1,
-					"numoutlets" : 1,
-					"fontsize" : 10.0
+					"text" : "prepend set selected_track id"
 				}
 
 			}
 , 			{
 				"box" : 				{
+					"fontname" : "Arial Bold",
+					"fontsize" : 10.0,
+					"id" : "obj-8",
 					"maxclass" : "newobj",
-					"text" : "zl mth",
+					"numinlets" : 2,
+					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
 					"patching_rect" : [ 232.0, 440.0, 40.0, 18.0 ],
-					"id" : "obj-8",
-					"fontname" : "Arial Bold",
-					"numinlets" : 2,
-					"numoutlets" : 2,
-					"fontsize" : 10.0
+					"text" : "zl mth"
 				}
 
 			}
 , 			{
 				"box" : 				{
+					"fontname" : "Arial Bold",
+					"fontsize" : 10.0,
+					"id" : "obj-7",
 					"maxclass" : "newobj",
-					"text" : "zl delace",
+					"numinlets" : 2,
+					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
 					"patching_rect" : [ 192.0, 416.0, 59.0, 18.0 ],
-					"id" : "obj-7",
-					"fontname" : "Arial Bold",
-					"numinlets" : 2,
-					"numoutlets" : 2,
-					"fontsize" : 10.0
+					"text" : "zl delace"
 				}
 
 			}
 , 			{
 				"box" : 				{
+					"fontname" : "Arial Bold",
+					"fontsize" : 10.0,
+					"id" : "obj-6",
 					"maxclass" : "newobj",
-					"text" : "route visible_tracks",
+					"numinlets" : 2,
+					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
 					"patching_rect" : [ 192.0, 368.0, 104.0, 18.0 ],
-					"id" : "obj-6",
-					"fontname" : "Arial Bold",
-					"numinlets" : 1,
-					"numoutlets" : 2,
-					"fontsize" : 10.0
+					"text" : "route visible_tracks"
 				}
 
 			}
 , 			{
 				"box" : 				{
+					"fontname" : "Arial Bold",
+					"fontsize" : 10.0,
+					"id" : "obj-5",
 					"maxclass" : "message",
-					"text" : "get visible_tracks",
+					"numinlets" : 2,
+					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 136.0, 320.0, 95.0, 16.0 ],
-					"id" : "obj-5",
-					"fontname" : "Arial Bold",
-					"numinlets" : 2,
-					"numoutlets" : 1,
-					"fontsize" : 10.0
+					"text" : "get visible_tracks"
 				}
 
 			}
 , 			{
 				"box" : 				{
+					"fontname" : "Arial Bold",
+					"fontsize" : 10.0,
+					"id" : "obj-4",
 					"maxclass" : "message",
-					"text" : "path live_set",
+					"numinlets" : 2,
+					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 192.0, 240.0, 71.0, 16.0 ],
-					"id" : "obj-4",
-					"fontname" : "Arial Bold",
-					"numinlets" : 2,
-					"numoutlets" : 1,
-					"fontsize" : 10.0
+					"text" : "path live_set"
 				}
 
 			}
 , 			{
 				"box" : 				{
-					"maxclass" : "newobj",
-					"text" : "live.object",
-					"outlettype" : [ "" ],
 					"color" : [ 0.984314, 0.819608, 0.05098, 1.0 ],
-					"patching_rect" : [ 192.0, 344.0, 61.0, 18.0 ],
-					"id" : "obj-3",
 					"fontname" : "Arial Bold",
+					"fontsize" : 10.0,
+					"id" : "obj-3",
+					"maxclass" : "newobj",
 					"numinlets" : 2,
 					"numoutlets" : 1,
-					"fontsize" : 10.0,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 192.0, 344.0, 61.0, 18.0 ],
 					"saved_object_attributes" : 					{
 						"_persistence" : 0
 					}
-
+,
+					"text" : "live.object"
 				}
 
 			}
 , 			{
 				"box" : 				{
-					"maxclass" : "newobj",
-					"text" : "live.path",
-					"outlettype" : [ "", "", "" ],
 					"color" : [ 0.984314, 0.819608, 0.05098, 1.0 ],
-					"patching_rect" : [ 192.0, 264.0, 67.0, 18.0 ],
-					"id" : "obj-2",
 					"fontname" : "Arial Bold",
+					"fontsize" : 10.0,
+					"id" : "obj-2",
+					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 3,
-					"fontsize" : 10.0
+					"outlettype" : [ "", "", "" ],
+					"patching_rect" : [ 192.0, 264.0, 67.0, 18.0 ],
+					"text" : "live.path"
 				}
 
 			}
 , 			{
 				"box" : 				{
-					"maxclass" : "inlet",
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 320.0, 96.0, 18.0, 18.0 ],
+					"comment" : "",
 					"id" : "obj-1",
+					"index" : 0,
+					"maxclass" : "inlet",
 					"numinlets" : 0,
 					"numoutlets" : 1,
-					"comment" : ""
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 320.0, 96.0, 18.0, 18.0 ]
 				}
 
 			}
  ],
 		"lines" : [ 			{
 				"patchline" : 				{
-					"source" : [ "obj-6", 0 ],
-					"destination" : [ "obj-19", 0 ],
-					"hidden" : 0,
-					"midpoints" : [  ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"source" : [ "obj-19", 2 ],
-					"destination" : [ "obj-7", 0 ],
-					"hidden" : 0,
-					"midpoints" : [  ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"source" : [ "obj-3", 0 ],
-					"destination" : [ "obj-6", 0 ],
-					"hidden" : 0,
-					"midpoints" : [  ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"source" : [ "obj-8", 0 ],
-					"destination" : [ "obj-9", 0 ],
-					"hidden" : 0,
-					"midpoints" : [  ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"source" : [ "obj-4", 0 ],
-					"destination" : [ "obj-2", 0 ],
-					"hidden" : 0,
-					"midpoints" : [  ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"source" : [ "obj-5", 0 ],
-					"destination" : [ "obj-3", 0 ],
-					"hidden" : 0,
-					"midpoints" : [  ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"source" : [ "obj-11", 0 ],
-					"destination" : [ "obj-13", 0 ],
-					"hidden" : 0,
-					"midpoints" : [  ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"source" : [ "obj-1", 0 ],
 					"destination" : [ "obj-10", 0 ],
-					"hidden" : 0,
-					"midpoints" : [  ]
+					"source" : [ "obj-1", 0 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"source" : [ "obj-10", 1 ],
-					"destination" : [ "obj-16", 1 ],
-					"hidden" : 0,
-					"midpoints" : [  ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"source" : [ "obj-10", 0 ],
 					"destination" : [ "obj-11", 0 ],
-					"hidden" : 0,
-					"midpoints" : [  ]
+					"source" : [ "obj-10", 0 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"source" : [ "obj-9", 0 ],
-					"destination" : [ "obj-12", 0 ],
-					"hidden" : 0,
-					"midpoints" : [  ]
+					"destination" : [ "obj-16", 1 ],
+					"source" : [ "obj-10", 1 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"source" : [ "obj-16", 0 ],
-					"destination" : [ "obj-8", 1 ],
-					"hidden" : 0,
-					"midpoints" : [  ]
+					"destination" : [ "obj-13", 0 ],
+					"source" : [ "obj-11", 0 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"source" : [ "obj-13", 1 ],
 					"destination" : [ "obj-15", 0 ],
-					"hidden" : 0,
-					"midpoints" : [  ]
+					"source" : [ "obj-13", 1 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"source" : [ "obj-15", 2 ],
-					"destination" : [ "obj-12", 1 ],
-					"hidden" : 0,
-					"midpoints" : [  ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"source" : [ "obj-15", 1 ],
-					"destination" : [ "obj-16", 0 ],
-					"hidden" : 0,
-					"midpoints" : [  ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"source" : [ "obj-15", 0 ],
-					"destination" : [ "obj-4", 0 ],
-					"hidden" : 0,
-					"midpoints" : [  ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"source" : [ "obj-2", 1 ],
-					"destination" : [ "obj-14", 0 ],
-					"hidden" : 0,
-					"midpoints" : [  ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"source" : [ "obj-14", 0 ],
-					"destination" : [ "obj-5", 0 ],
-					"hidden" : 0,
-					"midpoints" : [  ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"source" : [ "obj-14", 1 ],
 					"destination" : [ "obj-3", 1 ],
-					"hidden" : 0,
-					"midpoints" : [  ]
+					"source" : [ "obj-14", 1 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"source" : [ "obj-7", 1 ],
-					"destination" : [ "obj-8", 0 ],
-					"hidden" : 0,
-					"midpoints" : [  ]
+					"destination" : [ "obj-5", 0 ],
+					"source" : [ "obj-14", 0 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"source" : [ "obj-52", 0 ],
-					"destination" : [ "obj-51", 0 ],
-					"hidden" : 1,
-					"midpoints" : [  ]
+					"destination" : [ "obj-12", 1 ],
+					"source" : [ "obj-15", 2 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"source" : [ "obj-18", 0 ],
+					"destination" : [ "obj-16", 0 ],
+					"source" : [ "obj-15", 1 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-4", 0 ],
+					"source" : [ "obj-15", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-8", 1 ],
+					"source" : [ "obj-16", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-20", 0 ],
 					"hidden" : 1,
-					"midpoints" : [  ]
+					"source" : [ "obj-18", 0 ]
 				}
 
 			}
- ]
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-7", 0 ],
+					"source" : [ "obj-19", 2 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-14", 0 ],
+					"source" : [ "obj-2", 1 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-6", 0 ],
+					"source" : [ "obj-3", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-2", 0 ],
+					"source" : [ "obj-4", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-3", 0 ],
+					"source" : [ "obj-5", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-51", 0 ],
+					"hidden" : 1,
+					"source" : [ "obj-52", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-19", 0 ],
+					"source" : [ "obj-6", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-8", 0 ],
+					"source" : [ "obj-7", 1 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-9", 0 ],
+					"source" : [ "obj-8", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-12", 0 ],
+					"source" : [ "obj-9", 0 ]
+				}
+
+			}
+ ],
+		"dependency_cache" : [  ],
+		"autosave" : 0
 	}
 
 }

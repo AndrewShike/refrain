@@ -2,7 +2,7 @@
 	"name" : "refrain",
 	"version" : 1,
 	"creationdate" : 3630440635,
-	"modificationdate" : 3630444932,
+	"modificationdate" : 3630508715,
 	"viewrect" : [ 25.0, 70.0, 300.0, 500.0 ],
 	"autoorganize" : 1,
 	"hideprojectwindow" : 1,
@@ -12,8 +12,7 @@
 		"patchers" : 		{
 			"grid-js-live.maxpat" : 			{
 				"kind" : "patcher",
-				"local" : 1,
-				"toplevel" : 1
+				"local" : 1
 			}
 ,
 			"grid-js.maxpat" : 			{
