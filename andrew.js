@@ -263,13 +263,12 @@ var Fader = function(v, p, b, pg) {
 	this.b[0] = [];
 	
 	for(var i = this.pp[0]; i <= this.pp[1]; i++) {
-		this.p[0][i] = i;
+		this.p[0][i - this.pp[0]] = i;
 		this.b[0][i] = this.bb;
 	}
 }
 
 Fader.prototype = Object.create(Value.prototype);
-
 
 Fader.prototype.draw = function(g) {
 	if(this.pg()) {

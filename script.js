@@ -79,11 +79,38 @@ pages.event = function(v) {
 	redraw();
 }
 
+controls.ccs = {}
+controls.ccs.faders = [];
+	
+for(var i = 0; i < 3; i++) {
+	for(var j = 0; j < 4; j++) {
+		controls.ccs.faders[i * 4 + j] = new Fader(0, [[1, 13], j], [0, HI, LO], function() {});
+		controls.ccs.faders[i * 4 + j].index = i;
+		controls.ccs.faders[i * 4 + j].pg = function() { return page == this.index }
+		
+	}
+}
 
-controls.scale = new Toggles([0,1,2,3,4,5,6,7,8,9,10,11], [[0, 1,2,3,4,5,6,7,8,9,10,11], 0], [[0,0,0,0,0,0,0,0,0,0,0,0], HI], function() { return page == 0; });
-controls.marks = new Toggles([0], [[], 1], [[0,0,0,0,0,0,0,0,0,0,0,0], LO], function() { return page == 0; });
+controls.ccs.draw = function(g) {
+	for(var i = 0; i < 12; i++) {
+		controls.ccs.faders[i].draw(g);
+	}
+}
 
-controls.kpages =  new Value(0, [[10, 11, 12, 13], 3], [[LO,LO,LO,LO], HI], function() { return page == 0; });
+controls.ccs.look = function(x,y,z) {
+	for(var i = 0; i < 12; i++) {
+		controls.ccs.faders[i].look(x,y,z);
+	}
+}
+
+
+//controls.fader = new Fader(3, [[1, 13], 0], [0, HI, LO], function() { return page == 0; });
+//controls.fader = new Value(0,[[1,2,3,4,5,6,7,8,9,10,11,12,13], 0], [[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], HI], function() { return page == 0; });
+
+controls.scale = new Toggles([0,1,2,3,4,5,6,7,8,9,10,11], [[0, 1,2,3,4,5,6,7,8,9,10,11], 0], [[0,0,0,0,0,0,0,0,0,0,0,0], HI], function() { return page == 3; });
+controls.marks = new Toggles([0], [[], 1], [[0,0,0,0,0,0,0,0,0,0,0,0], LO], function() { return page == 3; });
+
+controls.kpages =  new Value(0, [[10, 11, 12, 13], 3], [[LO,LO,LO,LO], HI], function() { return page == 3; });
 controls.kpages.event = function(v) {
 	kpage = v;
 	redraw();
@@ -92,16 +119,16 @@ controls.kpages.event = function(v) {
 controls.rows = {}
 
 controls.rows.root = [];
-controls.rows.root[0] = new Value(0, [[0,1,2,3,4,5,6,7,8,9,10,11], 2], [[0,0,0,0,0,0,0,0,0,0,0,0], HI], function() { return page == 0 && kpage == 0; });
-controls.rows.root[1] = new Value(0, [[0,1,2,3,4,5,6,7,8,9,10,11], 2], [[0,0,0,0,0,0,0,0,0,0,0,0], HI], function() { return page == 0 && kpage == 1; });
-controls.rows.root[2] = new Value(0, [[0,1,2,3,4,5,6,7,8,9,10,11], 2], [[0,0,0,0,0,0,0,0,0,0,0,0], HI], function() { return page == 0 && kpage == 2; });
-controls.rows.root[3] = new Value(0, [[0,1,2,3,4,5,6,7,8,9,10,11], 2], [[0,0,0,0,0,0,0,0,0,0,0,0], HI], function() { return page == 0 && kpage == 3; });
+controls.rows.root[0] = new Value(0, [[0,1,2,3,4,5,6,7,8,9,10,11], 2], [[0,0,0,0,0,0,0,0,0,0,0,0], HI], function() { return page == 3 && kpage == 0; });
+controls.rows.root[1] = new Value(0, [[0,1,2,3,4,5,6,7,8,9,10,11], 2], [[0,0,0,0,0,0,0,0,0,0,0,0], HI], function() { return page == 3 && kpage == 1; });
+controls.rows.root[2] = new Value(0, [[0,1,2,3,4,5,6,7,8,9,10,11], 2], [[0,0,0,0,0,0,0,0,0,0,0,0], HI], function() { return page == 3 && kpage == 2; });
+controls.rows.root[3] = new Value(0, [[0,1,2,3,4,5,6,7,8,9,10,11], 2], [[0,0,0,0,0,0,0,0,0,0,0,0], HI], function() { return page == 3 && kpage == 3; });
 
 controls.rows.oct = [];
-controls.rows.oct[0] = new Value(5, [[0,1,2,3,4,5,6,7,8,9], 3], [[0,0,0,0,0,LO,0,0,0,0], HI], function() { return page == 0 && kpage == 0; });
-controls.rows.oct[1] = new Value(5, [[0,1,2,3,4,5,6,7,8,9], 3], [[0,0,0,0,0,LO,0,0,0,0], HI], function() { return page == 0 && kpage == 1; });
-controls.rows.oct[2] = new Value(5, [[0,1,2,3,4,5,6,7,8,9], 3], [[0,0,0,0,0,LO,0,0,0,0], HI], function() { return page == 0 && kpage == 2; });
-controls.rows.oct[3] = new Value(5, [[0,1,2,3,4,5,6,7,8,9], 3], [[0,0,0,0,0,LO,0,0,0,0], HI], function() { return page == 0 && kpage == 3; });
+controls.rows.oct[0] = new Value(5, [[0,1,2,3,4,5,6,7,8,9], 3], [[0,0,0,0,0,LO,0,0,0,0], HI], function() { return page == 3 && kpage == 0; });
+controls.rows.oct[1] = new Value(5, [[0,1,2,3,4,5,6,7,8,9], 3], [[0,0,0,0,0,LO,0,0,0,0], HI], function() { return page == 3 && kpage == 1; });
+controls.rows.oct[2] = new Value(5, [[0,1,2,3,4,5,6,7,8,9], 3], [[0,0,0,0,0,LO,0,0,0,0], HI], function() { return page == 3 && kpage == 2; });
+controls.rows.oct[3] = new Value(5, [[0,1,2,3,4,5,6,7,8,9], 3], [[0,0,0,0,0,LO,0,0,0,0], HI], function() { return page == 3 && kpage == 3; });
 
 controls.rows.keyb = [];
 controls.rows.keyb[3] = new Momentaries([], [[0,1,2,3,4,5,6,7,8,9,10,11,12,13], 4], [[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], HI], function() { return 1; });
@@ -150,8 +177,6 @@ controls.marks.event = function(v, last) {
 	for(var i = 0; i < 4; i++) {
 		controls.rows.keyb[i].b[0] = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 		
-		//post(controls.rows.keyb[0].p[0].length / controls.scale.v.length);
-		
 		for(var j = -Math.ceil(controls.rows.keyb[0].p[0].length / controls.scale.v.length); j < Math.ceil(controls.rows.keyb[0].p[0].length / controls.scale.v.length); j++) {
 			for(var k = 0; k < controls.marks.v.length; k++) {
 				controls.rows.keyb[i].b[0][controls.marks.v[k] + (j * controls.scale.v.length) - controls.rows.root[i].v] = LO;
@@ -163,7 +188,7 @@ controls.marks.event = function(v, last) {
 }
 
 for(var i = 0; i < 4; i++) {
-	controls.rows.keyb[i].row = i;
+	controls.rows.keyb[i].index = i;
 	
 	controls.rows.keyb[i].event = function(v, last, add, rem) {
 		var key;
@@ -177,15 +202,15 @@ for(var i = 0; i < 4; i++) {
 			key = rem;
 			gate = 0;
 		}
-		key += controls.rows.root[this.row].v;
-		key = controls.scale.v[key % controls.scale.v.length] + ((Math.floor(key / controls.scale.v.length) + controls.rows.oct[this.row].v) * controls.scale.p[0].length);
+		key += controls.rows.root[this.index].v;
+		key = controls.scale.v[key % controls.scale.v.length] + ((Math.floor(key / controls.scale.v.length) + controls.rows.oct[this.index].v) * controls.scale.p[0].length);
 		
 		output("key", key, gate);
 		
 		
 		if(gate) {
-			controls.kpages.v = this.row;
-			controls.kpages.event(this.row);
+			controls.kpages.v = this.index;
+			controls.kpages.event(this.index);
 		}
 	}
 	
