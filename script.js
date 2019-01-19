@@ -6,6 +6,18 @@ include("andrew.js");
 
 var g = grid.connect();
 
+var LO = 7;
+var HI = 11;
+
+var page = 0;
+var kpage = 0;
+
+var livetrack;
+var pages;
+var patterns = [];
+
+var controls = [];
+
 var update = function(x, y, z) {
 	for(i in controls) {
 		if(controls[i].look) controls[i].look(x, y, z);
@@ -48,29 +60,17 @@ var redraw = function() {
 	g.refresh();
 }
 
-input["thistrack"] = function(n) {
-	livetrack.v = n;
-	livetrack.draw(g);
-	g.refresh();
-}
-
-var LO = 7;
-var HI = 11;
-
-var page = 0;
-var kpage = 0;
-
-var livetrack;
-var pages;
-var patterns = [];
-
-var controls = [];
-
 livetrack = new Value(-1, [15, [0, 1, 2, 3]], [[LO, LO, LO, LO], HI], function() { return 1; });
 livetrack.event = function(v, last) {
 	output("settrack", v);
 	
 	this.v = last;
+}
+
+input["thistrack"] = function(n) {
+	livetrack.v = n;
+	livetrack.draw(g);
+	g.refresh();
 }
 
 pages = new Value(0, [15, [4, 5, 6, 7]], [[0, 0, 0, 0], HI], function() { return 1; });
@@ -81,6 +81,8 @@ pages.event = function(v) {
 
 controls.ccs = {}
 controls.ccs.faders = [];
+controls.ccs.buttons = [];
+controls.ccs.globals = [];
 	
 for(var i = 0; i < 3; i++) {
 	for(var j = 0; j < 4; j++) {
@@ -88,24 +90,144 @@ for(var i = 0; i < 3; i++) {
 		controls.ccs.faders[i * 4 + j].index = i;
 		controls.ccs.faders[i * 4 + j].pg = function() { return page == this.index }
 		
+		controls.ccs.buttons[i * 4 + j] = new Toggle(0, [0, j], [LO, HI], function() {});
+		controls.ccs.buttons[i * 4 + j].index = i;
+		controls.ccs.buttons[i * 4 + j].pg = function() { return page == this.index }
+			
+		if(i == 0) {
+			controls.ccs.globals[j] = new Toggle(0, [14, j], [LO, HI], function() { return 1; });
+			controls.ccs.globals[j].index = j;
+		}
 	}
 }
 
 controls.ccs.draw = function(g) {
 	for(var i = 0; i < 12; i++) {
 		controls.ccs.faders[i].draw(g);
+		controls.ccs.buttons[i].draw(g);
+		if(i < 4) controls.ccs.globals[i].draw(g);
 	}
 }
 
 controls.ccs.look = function(x,y,z) {
 	for(var i = 0; i < 12; i++) {
 		controls.ccs.faders[i].look(x,y,z);
+		controls.ccs.buttons[i].look(x,y,z);
+		if(i < 4) controls.ccs.globals[i].look(x,y,z);
 	}
 }
 
+input["livemap"] = function(n) {
+	if(n[1] == "map") {
+		if(n[2] == 0 && n[0] < 12) {
+			controls.ccs.buttons[n[0]].v == 0;
+			controls.ccs.buttons[n[0]].task.cancel();
+			controls.ccs.buttons[n[0]].b[1] = controls.ccs.buttons[n[0]].bb[1];
+			controls.ccs.buttons[n[0]].b[0] = 0;
+			controls.ccs.buttons[n[0]].mapped = 1;
+			
+			controls.ccs.faders[n[0]].pg = controls.ccs.faders[n[0]].pp;
+			
+			redraw();
+		}
+		else if(n[0] < 12) {
+			controls.ccs.buttons[n[0]].v = n[2];
+		}
+		else if(n[2] == 0) {
+			controls.ccs.globals[n[0] - 12].task.cancel();
+			controls.ccs.globals[n[0] - 12].b[1] = controls.ccs.globals[n[0] - 12].bb[1];
+			controls.ccs.globals[n[0] - 12].b[0] = 0;
+			
+			controls.ccs.globals[n[0] - 12].mapped = 1;
+			controls.ccs.globals[n[0] - 12].v = 0;
+			
+			redraw();
+		}
+	}
+	else {
+		controls.ccs.faders[n[0]].v = Math.round(n[1] * 12);
+		controls.ccs.faders[n[0]].draw(g);
+		g.refresh();
+	}
+}
 
-//controls.fader = new Fader(3, [[1, 13], 0], [0, HI, LO], function() { return page == 0; });
-//controls.fader = new Value(0,[[1,2,3,4,5,6,7,8,9,10,11,12,13], 0], [[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], HI], function() { return page == 0; });
+for(var i = 0; i < 12; i++) {
+	controls.ccs.buttons[i].mapped = 0;
+	
+	controls.ccs.faders[i].pp = controls.ccs.faders[i].pg;
+	controls.ccs.faders[i].pg = function() { return 0; };
+	
+	controls.ccs.buttons[i].bb = controls.ccs.buttons[i].b.slice();
+	controls.ccs.buttons[i].task = new Task(function() {
+		if(this.b[1] == this.bb[1]) this.b[1] = this.bb[0];
+		else this.b[1] = this.bb[1];
+		redraw();
+	}, controls.ccs.buttons[i]);
+	
+	controls.ccs.buttons[i].event = function(v, last) {
+		if(this.mapped) {
+			output("livemap", this.index, "cancel");
+			controls.ccs.faders[this.index].pg = function() { return 0; };
+			
+			this.mapped = 0;
+			this.b[0] = this.bb[0];
+			this.event(v);
+		}
+		else {
+			if(v) { 
+				output("livemap", this.index, "map", v);
+				this.task.repeat();
+			}
+			else { /*
+				this.task.cancel();
+				this.b[1] = this.bb[1];
+				this.b[0] = 0;
+				this.mapped = 1; */
+				this.v = 1;
+			}
+		}
+	}
+	
+	controls.ccs.faders[i].event = function(v) {
+		if(controls.ccs.buttons[this.index].mapped) output("livemap", this.index, v / 12);
+	}
+}
+
+for(var i = 0; i < 4; i++) {
+	controls.ccs.globals[i].mapped = 0;
+	
+	controls.ccs.globals[i].bb = controls.ccs.buttons[i].b.slice();
+	controls.ccs.globals[i].task = new Task(function() {
+		if(this.b[1] == this.bb[1]) this.b[1] = this.bb[0];
+		else this.b[1] = this.bb[1];
+		redraw();
+	}, controls.ccs.globals[i]);
+	
+	controls.ccs.globals[i].event = function(v, last) {
+		if(this.mapped) {
+			//output("livemap", this.index + 12, "cancel");
+			//this.mapped = 0;
+			
+			this.b[1] = this.bb[1];
+			this.b[0] = 0;
+			
+			output("livemap", this.index + 12, v);
+		}
+		else {
+			if(v) { 
+				output("livemap", this.index + 12, "map", v);
+				this.task.repeat();
+			}
+			else { /*
+				this.task.cancel();
+				this.b[1] = this.bb[1];
+				this.b[0] = 0;
+				this.mapped = 1; */
+				this.v = 1;
+			}
+		}
+	}
+}
 
 controls.scale = new Toggles([0,1,2,3,4,5,6,7,8,9,10,11], [[0, 1,2,3,4,5,6,7,8,9,10,11], 0], [[0,0,0,0,0,0,0,0,0,0,0,0], HI], function() { return page == 3; });
 controls.marks = new Toggles([0], [[], 1], [[0,0,0,0,0,0,0,0,0,0,0,0], LO], function() { return page == 3; });
@@ -207,11 +329,11 @@ for(var i = 0; i < 4; i++) {
 		
 		output("key", key, gate);
 		
-		
+		/*
 		if(gate) {
 			controls.kpages.v = this.index;
 			controls.kpages.event(this.index);
-		}
+		}*/
 	}
 	
 	controls.rows.root[i].event = function(v) {
@@ -227,12 +349,17 @@ for(var i = 0; i < 4; i++) {
 	}
 }
 
-/*
+for(var i = 0; i < 4; i++) {
+	controls.p0 = new Toggle(0, [14, 4], [0, LO, HI], function() { return 1; });
+	controls.p1 = new Toggle(0, [14, 5], [0, LO, HI], function() { return 1; });
+	controls.p2 = new Toggle(0, [14, 6], [0, LO, HI], function() { return 1; });
+	controls.p3 = new Toggle(0, [14, 7], [0, LO, HI], function() { return 1; });
+}
+
 patterns[0] = new Pattern(controls.p0, update);
 patterns[1] = new Pattern(controls.p1, update);
 patterns[2] = new Pattern(controls.p2, update);
 patterns[3] = new Pattern(controls.p3, update);
-*/
 
 var init = function() {
 	controls.scale.event();

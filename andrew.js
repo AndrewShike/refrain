@@ -207,7 +207,7 @@ Momentaries.prototype.look = function(x, y, z) {
 						var added = -1;
 						var removed = -1;
 						
-						if(z == 1) {
+						if(z == 1 && this.v.indexOf(i) == -1) {
 							this.v.push(i);
 							this.v.sort(function(a, b) { return a - b; });
 							
@@ -232,7 +232,7 @@ Momentaries.prototype.look = function(x, y, z) {
 						var added = -1;
 						var removed = -1;
 						
-						if(z == 1) {
+						if(z == 1 && this.v.indexOf(i) == -1) {
 							this.v.push(i);
 							this.v.sort(function(a, b) { return a - b; });
 							
